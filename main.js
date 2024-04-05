@@ -84,7 +84,7 @@ function initSlider() {
     images.forEach((image, index) => {
       let dot = `<div class = 'section-one__dots_item n${index} ${
         index === 0 ? "active" : ""
-      }' data-index = '${index}'</div>`;
+      }' data-index = '${index}'></div>`;
       sliderDots.innerHTML += dot;
     });
     sliderDots
@@ -97,18 +97,28 @@ function initSlider() {
   }
   //Вызываем функцию initDots
   initDots();
-
-  //*************Функция для переключения по навигации
-  let sliderNav = document.querySelector(".section__two_nav");
-  function initNav() {
-    sliderNav.querySelectorAll(".nav__item").forEach((item, index) => {
-      item.addEventListener("click", function () {
-        moveSlider(index);
-      });
+  //*********************Функция для навигации
+  let sliderNavigation = document.querySelector(".section__two_nav");
+  function initNavigation() {
+    images.forEach((image, index) => {
+      let text = `<span class = 'section-two__nav n${index} ${
+        index === 0 ? "actives" : ""
+      }'>${arrText[index]}</span>`;
+      sliderNavigation.innerHTML += text;
     });
   }
+  initNavigation();
+  //*************Функция для переключения по навигации
+  // let sliderNav = document.querySelector(".section__two_nav");
+  // function initNav() {
+  //   sliderNav.querySelectorAll(".nav__item").forEach((item, index) => {
+  //     item.addEventListener("click", function () {
+  //       moveSlider(index);
+  //     });
+  //   });
+  // }
 
-  initNav();
+  // initNav();
   //*************Функция принимает номер слайдера и переключает его с помощью active
   function moveSlider(num) {
     currentIndex = num;
