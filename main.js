@@ -1,4 +1,3 @@
-//Массив наших картинок
 let images = [
   {
     url: "img/img_1.png",
@@ -26,39 +25,26 @@ let arrText = [
 ];
 
 function initSlider() {
-  //Проверяем существует ли массив и есть ли в нем значения
-  //если нет выходим их функции
   if (!images || !images.length) return;
 
-  //*******************Пишем функцию для вставки картинки перебираем массив
-  // и вставляем все три картинки в класс section-two__picture
-  //Переменная для вставки картинки
+  //**************Функция для массава
   let sliderImages = document.querySelector(".section-two__picture");
   function initImages() {
-    //Перебираем массив
     images.forEach((image, index) => {
-      //Создаём новых три класса класс image класс n с индексом элемента
       let imageDiv = `<div class = 'image n${index} ${
-        //класс active если это превый элемент массива если нет но ничего не создаём
         index === 0 ? "active" : ""
       }' style ='background-image: url(${
         images[index].url
-        //И новый атрибут data-index
       });' data-index = '${index}'></div>`;
-      //Вставляем картинки из массива
       sliderImages.innerHTML += imageDiv;
     });
   }
-  //Вызываем функцию для вставки изображения из массива
   initImages();
 
-  //***************Функция для обработчика стрелок для картинок
-  //Делаем переменную для стрелок DOM для родительского класса
+  //***************Функция для стрелок
   let sliderArrows = document.querySelector(".section-one__box-three");
   function initArrows() {
-    //Ищем в родительском элементе дочерние и перебираем массив вешая обработчик события
     sliderArrows.querySelectorAll(".box-three__arrow").forEach((arrow) => {
-      //Вешаем обработчик на каждую стрелку
       arrow.addEventListener("click", function () {
         let curNumber = +sliderImages.querySelector(".active").dataset.index;
         let nextNumber;
@@ -71,11 +57,9 @@ function initSlider() {
       });
     });
   }
-  //Вызываем функцию для стрелок
   initArrows();
 
   //********************Функция для точек
-  //Инициализация переменной DOM для точек
   let sliderDots = document.querySelector(".section-one__dots");
   function initDots() {
     images.forEach((image, index) => {
@@ -92,7 +76,6 @@ function initSlider() {
         });
       });
   }
-  //Вызываем функцию initDots
   initDots();
   //*********************Функция для навигации
   let sliderNavigation = document.querySelector(".section-two__nav");
@@ -114,7 +97,7 @@ function initSlider() {
   }
   initNavigation();
 
-  //*************Функция принимает номер слайдера и переключает его с помощью active
+  //*************Функция для переключения active
   function moveSlider(num) {
     sliderImages.querySelector(".active").classList.remove("active");
     sliderImages.querySelector(".n" + num).classList.add("active");
