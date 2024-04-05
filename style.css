@@ -97,25 +97,9 @@ p {
   max-width: 623px;
 }
 
-/* .section__two_nav ul {
+.section-two__nav {
   display: flex;
   gap: 60.5px;
-  list-style: none;
-} */
-
-.section__two_nav{
-  display: flex;
-  gap: 60.5px;
-}
-
-.section__two_nav span {
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 139%;
-  color: rgba(255, 255, 255, 0.3);
-  font-family: "Yeseva One";
-  cursor: pointer;
 }
 
 .section-one__box-three {
@@ -152,14 +136,9 @@ p {
   opacity: 0;
 }
 
-/* При классе active покажываем картинку */
+/* При классе active показываем картинку */
 .active {
   opacity: 1;
-}
-
-#nav_1 {
-  color: #e3b873;
-  text-decoration: underline;
 }
 
 /* Классы точек */
@@ -170,7 +149,7 @@ p {
 .section-one__dots_item {
   width: 10px;
   height: 10px;
-  background: rgb(255, 255, 255,0.3);
+  background: rgb(255, 255, 255, 0.3);
   border-radius: 50%;
   margin: 0 5px;
   cursor: pointer;
@@ -179,5 +158,20 @@ p {
 
 .section-one__dots_item:hover,
 .active {
-  background: #FFFFFF;
+  background: #ffffff;
+}
+
+.section-two__nav_item {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 139%;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: "Yeseva One";
+  cursor: pointer;
+}
+
+.switch {
+  color: #e3b873;
+  text-decoration-line: underline;
 }

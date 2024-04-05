@@ -25,9 +25,6 @@ let arrText = [
   "ROSTOV-ON-DON PATRIOTIC",
 ];
 
-//текущий индекс элемента
-let currentIndex = 0;
-
 function initSlider() {
   //Проверяем существует ли массив и есть ли в нем значения
   //если нет выходим их функции
@@ -84,7 +81,7 @@ function initSlider() {
     images.forEach((image, index) => {
       let dot = `<div class = 'section-one__dots_item n${index} ${
         index === 0 ? "active" : ""
-      }' data-index = '${index}'></div>`;
+      }' ></div>`;
       sliderDots.innerHTML += dot;
     });
     sliderDots
@@ -98,36 +95,33 @@ function initSlider() {
   //Вызываем функцию initDots
   initDots();
   //*********************Функция для навигации
-  let sliderNavigation = document.querySelector(".section__two_nav");
+  let sliderNavigation = document.querySelector(".section-two__nav");
   function initNavigation() {
     images.forEach((image, index) => {
-      let text = `<span class = 'section-two__nav n${index} ${
-        index === 0 ? "actives" : ""
+      let text = `<span class = 'section-two__nav_item n${index} ${
+        index === 0 ? "switch" : ""
       }'>${arrText[index]}</span>`;
       sliderNavigation.innerHTML += text;
     });
+
+    sliderNavigation
+      .querySelectorAll(".section-two__nav_item")
+      .forEach((elem, index) => {
+        elem.addEventListener("click", () => {
+          moveSlider(index);
+        });
+      });
   }
   initNavigation();
-  //*************Функция для переключения по навигации
-  // let sliderNav = document.querySelector(".section__two_nav");
-  // function initNav() {
-  //   sliderNav.querySelectorAll(".nav__item").forEach((item, index) => {
-  //     item.addEventListener("click", function () {
-  //       moveSlider(index);
-  //     });
-  //   });
-  // }
 
-  // initNav();
   //*************Функция принимает номер слайдера и переключает его с помощью active
   function moveSlider(num) {
-    currentIndex = num;
     sliderImages.querySelector(".active").classList.remove("active");
     sliderImages.querySelector(".n" + num).classList.add("active");
     sliderDots.querySelector(".active").classList.remove("active");
     sliderDots.querySelector(".n" + num).classList.add("active");
-    sliderNav.querySelector(".active").classList.remove("active");
-    sliderNav.querySelector(".n" + num).classList.add("active");
+    sliderNavigation.querySelector(".switch").classList.remove("switch");
+    sliderNavigation.querySelector(".n" + num).classList.add("switch");
   }
 }
 
