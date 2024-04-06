@@ -33,9 +33,13 @@ let arrText = [
 
 function initSlider() {
   if (!images || !images.length) return;
-
-  //**************Функция для массава
+  //****************************Переменные для элементов ***************************
   let sliderImages = document.querySelector(".section-two__picture");
+  let sliderArrows = document.querySelector(".section-one__box-three");
+  let sliderDots = document.querySelector(".section-one__dots");
+  let sliderNavigation = document.querySelector(".section-two__nav");
+  //***************************** Функции*******************************************
+  //Функция для массава с картинками и текстом
   function initImages() {
     images.forEach((image, index) => {
       let imageDiv = `<div class = 'image n${index} ${
@@ -46,10 +50,7 @@ function initSlider() {
       sliderImages.innerHTML += imageDiv;
     });
   }
-  initImages();
-
-  //***************Функция для стрелок
-  let sliderArrows = document.querySelector(".section-one__box-three");
+  //Функция для стрелок
   function initArrows() {
     sliderArrows.querySelectorAll(".box-three__arrow").forEach((arrow) => {
       arrow.addEventListener("click", function () {
@@ -64,10 +65,7 @@ function initSlider() {
       });
     });
   }
-  initArrows();
-
-  //********************Функция для точек
-  let sliderDots = document.querySelector(".section-one__dots");
+  //Функция для точек
   function initDots() {
     images.forEach((image, index) => {
       let dot = `<div class = 'section-one__dots_item n${index} ${
@@ -83,9 +81,7 @@ function initSlider() {
         });
       });
   }
-  initDots();
-  //*********************Функция для навигации
-  let sliderNavigation = document.querySelector(".section-two__nav");
+  //Функция для навигации
   function initNavigation() {
     images.forEach((image, index) => {
       let text = `<span class = 'section-two__nav_item n${index} ${
@@ -93,7 +89,6 @@ function initSlider() {
       }'>${arrText[index]}</span>`;
       sliderNavigation.innerHTML += text;
     });
-
     sliderNavigation
       .querySelectorAll(".section-two__nav_item")
       .forEach((elem, index) => {
@@ -102,9 +97,7 @@ function initSlider() {
         });
       });
   }
-  initNavigation();
-
-  //*************Функция для переключения active
+  //Функция для переключения active
   function moveSlider(num) {
     sliderImages.querySelector(".active").classList.remove("active");
     sliderImages.querySelector(".n" + num).classList.add("active");
@@ -113,6 +106,12 @@ function initSlider() {
     sliderNavigation.querySelector(".switch").classList.remove("switch");
     sliderNavigation.querySelector(".n" + num).classList.add("switch");
   }
+
+  //********************************Вызов функций******************************
+  initImages();
+  initNavigation();
+  initDots();
+  initArrows();
 }
 
 //Обработчик событий который вызывает функцию после прогрузки страницы
