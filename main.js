@@ -67,6 +67,7 @@ function initSlider() {
           nextNumber = curNumber === images.length - 1 ? 0 : curNumber + 1;
         }
         moveSlider(nextNumber);
+        nextText(nextNumber);
       });
     });
   }
@@ -83,6 +84,7 @@ function initSlider() {
       .forEach((dot, index) => {
         dot.addEventListener("click", function () {
           moveSlider(index);
+          nextText(index);
         });
       });
   }
@@ -99,6 +101,7 @@ function initSlider() {
       .forEach((elem, index) => {
         elem.addEventListener("click", () => {
           moveSlider(index);
+          nextText(index);
         });
       });
   }
@@ -112,7 +115,7 @@ function initSlider() {
     sliderNavigation.querySelector(".n" + num).classList.add("switch");
   }
   //Функция для переключения текста
-  function nextText(ind){
+  function nextText(ind) {
     textCityOne.innerText = images[ind].cityOne;
     textCityTwo.innerText = images[ind].cityTwo;
     textRepairTime.innerText = images[ind].repairTime;
