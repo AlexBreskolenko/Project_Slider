@@ -1,20 +1,27 @@
 let images = [
   {
     url: "img/img_1.png",
+    cityOne: "Rostov-on-Don",
+    cityTwo: "LCD admiral",
+    apartmetn: "81 m2",
+    repairTime: "3.5 months",
+    repairCost: "Upon request",
   },
   {
     url: "img/img_2.png",
     cityOne: "Sochi",
     cityTwo: "Thieves",
     apartmetn: "105 m2",
-    repair: "4 months",
+    repairTime: "4 months",
+    repairCost: "Upon request",
   },
   {
     url: "img/img_3.png",
     cityOne: "Rostov-on-Don",
     cityTwo: "Patriotic",
     apartmetn: "93 m2",
-    repair: "3 months",
+    repairTime: "3 months",
+    repairCost: "Upon request",
   },
 ];
 
