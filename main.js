@@ -38,6 +38,11 @@ function initSlider() {
   let sliderArrows = document.querySelector(".section-one__box-three");
   let sliderDots = document.querySelector(".section-one__dots");
   let sliderNavigation = document.querySelector(".section-two__nav");
+  let textCityOne = document.querySelector(".cityOne");
+  let textCityTwo = document.querySelector(".cityTwo");
+  let textRepairTime = document.querySelector(".repairTime");
+  let textApartment = document.querySelector(".apartment");
+  let textRepairCost = document.querySelector(".repairCost");
   //***************************** Функции*******************************************
   //Функция для массава с картинками и текстом
   function initImages() {
@@ -106,7 +111,14 @@ function initSlider() {
     sliderNavigation.querySelector(".switch").classList.remove("switch");
     sliderNavigation.querySelector(".n" + num).classList.add("switch");
   }
-
+  //Функция для переключения текста
+  function nextText(ind){
+    textCityOne.innerText = images[ind].cityOne;
+    textCityTwo.innerText = images[ind].cityTwo;
+    textRepairTime.innerText = images[ind].repairTime;
+    textRepairCost.innerText = images[ind].repairCost;
+    textApartment.innerText = images[ind].apartmetn;
+  }
   //********************************Вызов функций******************************
   initImages();
   initNavigation();
